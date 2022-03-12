@@ -8,39 +8,49 @@
   <title>Bellybutton Biodiversity</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
-
+<style>
+  .jumbotron{
+    background-image: url(images/petri_dish.jpg);
+    background-size: cover;
+    background-position-y:20%;
+  }
+   .container-fluid {
+    background-color: #566687;
+  } 
+  .panel-heading {
+    background-color:#f37d00
+  }
+</style>
 <body>
-
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-12 jumbotron text-center">
+      <div class="col-xs-12 col-md-12 jumbotron text-center">
         <h1>Belly Button Biodiversity Dashboard</h1>
         <p>Use the interactive charts below to explore the dataset</p>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-xs-12 col-md-2">
         <div class="well">
           <h5>Test Subject ID No.:</h5>
-          <!-- <select id="selDataset"></select> -->
           <select id="selDataset" onchange="optionChanged(this.value)"></select>
         </div>
-        <div class="panel panel-primary">
+        <div class="panel">
           <div class="panel-heading">
             <h3 class="panel-title">Demographic Info</h3>
           </div>
           <div id="sample-metadata" class="panel-body"></div>
         </div>
       </div>
-      <div class="col-md-5">
+      <div class="col-xs-12 col-md-5" style="margin-bottom:1%">
         <div id="bar"></div>
       </div>
-      <div class="col-md-5">
+      <div class="col-xs-12 col-md-5" style="margin-bottom:1%">
         <div id="gauge"></div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12">
+    <div class="row" style="margin:1%">
+      <div class="col-xs-12 col-md-12 center">
         <div id="bubble"></div>
       </div>
     </div>

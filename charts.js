@@ -96,7 +96,8 @@ function buildCharts(sample) {
         y:yticks,
         type:"bar",
         orientation:"h",
-        text:otuLabels
+        text:otuLabels,
+        marker:{color:"rgb(243, 125, 0)"}
     }];
     // 9. Create the layout for the bar chart. 
     var barLayout = {
@@ -141,25 +142,26 @@ function buildCharts(sample) {
       gauge:{
         axis:{range:[0,10]},
         steps:[
-          {range:[0,2], color:"red"},
-          {range:[2,4], color:"orange"},
-          {range:[4,6], color:"yellow"},
-          {range:[6,8], color:"greenyellow"},
-          {range:[8,10], color:"green"}
+          {range:[0,2], color:"rgb(197,10,0,255)"},
+          {range:[2,4], color:"rgb(243, 125, 0)"},
+          {range:[4,6], color:"rgb(243,192,0,255)"},
+          {range:[6,8], color:"rgb(235,205,140,255)"},
+          {range:[8,10], color:"rgb(226,225,230,255)"}
         ],
-        bar:{color:"black"}
+        bar:{color:"rgb(38,52,88)"}
       }
     }];
     
+    // Specifying layout with Plotly did not play well with Bootstrap; letting bootstap take care of it
     // 5. Create the layout for the gauge chart.
-    var gaugeLayout = {
-      width: 400,
-      height: 300,
-      margin: { t: 50, r: 10, l: 10, b: 10 }
-    };
+    // var gaugeLayout = {
+    // //   width: 400,
+    // //   height: 300,
+    //   margin: { t: 20, r: 20, l: 20, b: 20 }
+    // };
 
     // 6. Use Plotly to plot the gauge data and layout.
-    Plotly.newPlot("gauge",gaugeData,gaugeLayout);
+    Plotly.newPlot("gauge",gaugeData,/*gaugeLayout*/);
 
   });
 }
