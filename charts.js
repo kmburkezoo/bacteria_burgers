@@ -32,7 +32,7 @@ function optionChanged(newSample) {
 
 // Demographics Panel 
 function buildMetadata(sample) {
-  d3.json("samples.json").then((data) => {
+  d3.json("../../samples.json").then((data) => {
     var metadata = data.metadata;
     // Filter the data for the object with the desired sample number
     var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
@@ -92,7 +92,7 @@ function buildCharts(sample) {
 
     // 8. Create the trace for the bar chart. 
     var barData = [{
-        x:sampleValues.slice(0,10),
+        x:sampleValues.slice(0,10).reverse(),
         y:yticks,
         type:"bar",
         orientation:"h",
@@ -137,7 +137,7 @@ function buildCharts(sample) {
       value:washFreq,
       type:"indicator",
       mode:"gauge+number",
-      // title:
+      title: {text:"<b>Belly Button Washing</b><br>Frequency Scrubs Per Week"},
       gauge:{
         axis:{range:[0,10]},
         steps:[
@@ -153,9 +153,9 @@ function buildCharts(sample) {
     
     // 5. Create the layout for the gauge chart.
     var gaugeLayout = {
-      width: 300,
-      height: 200,
-      margin: { t: 10, r: 10, l: 10, b: 10 }
+      width: 400,
+      height: 300,
+      margin: { t: 50, r: 10, l: 10, b: 10 }
     };
 
     // 6. Use Plotly to plot the gauge data and layout.
